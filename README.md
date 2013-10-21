@@ -1,0 +1,2 @@
+woocommerce-product-image-flipper
+=================================
