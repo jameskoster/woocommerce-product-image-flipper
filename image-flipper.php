@@ -42,7 +42,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			}
 
 
-	        /*-----------------------------------------------------------------------------------*/
+			/*-----------------------------------------------------------------------------------*/
 			/* Class Functions */
 			/*-----------------------------------------------------------------------------------*/
 
@@ -60,13 +60,17 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 				$post_type = get_post_type( get_the_ID() );
 
-				if ( $post_type == 'product' ) {
+				if ( ! is_admin() ) {
 
-					$attachment_ids = $product->get_gallery_attachment_ids();
+					if ( $post_type == 'product' ) {
 
-					if ( $attachment_ids ) {
-						$classes[] = 'pif-has-gallery';
+						$attachment_ids = $product->get_gallery_attachment_ids();
+
+						if ( $attachment_ids ) {
+							$classes[] = 'pif-has-gallery';
+						}
 					}
+
 				}
 
 				return $classes;
