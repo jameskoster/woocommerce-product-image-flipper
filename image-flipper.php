@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Product Image Flipper
 Plugin URI: http://jameskoster.co.uk/tag/product-image-flipper/
-Version: 0.2.0
+Version: 0.2.1
 Description: Adds a secondary image on product archives that is revealed on hover. Perfect for displaying front/back shots of clothing and other products.
 Author: jameskoster
 Author URI: http://jameskoster.co.uk
@@ -55,7 +55,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 			// Add pif-has-gallery class to products that have a gallery
 			function product_has_gallery( $classes ) {
-				global $product;
+
+				$product = wc_get_product(  get_the_ID()  );
 
 				$post_type = get_post_type( get_the_ID() );
 
