@@ -2,7 +2,7 @@
 /*
 Plugin Name: WooCommerce Product Image Flipper
 Plugin URI: http://jameskoster.co.uk/tag/product-image-flipper/
-Version: 0.2.0
+Version: 0.3.0
 Description: Adds a secondary image on product archives that is revealed on hover. Perfect for displaying front/back shots of clothing and other products.
 Author: jameskoster
 Author URI: http://jameskoster.co.uk
@@ -28,7 +28,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 
 	/**
-	 * New Badge class
+	 * Image Flipper class
 	 **/
 	if ( ! class_exists( 'WC_pif' ) ) {
 
@@ -87,8 +87,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				$attachment_ids = $this->get_gallery_image_ids( $product );
 
 				if ( $attachment_ids ) {
+					$attachment_ids     = array_values( $attachment_ids );
 					$secondary_image_id = $attachment_ids['0'];
-					echo wp_get_attachment_image( $secondary_image_id, 'shop_catalog', '', $attr = array( 'class' => 'secondary-image attachment-shop-catalog' ) );
+					echo wp_get_attachment_image( $secondary_image_id, 'shop_catalog', '', $attr = array( 'class' => 'secondary-image attachment-shop-catalog wp-post-image' ) );
 				}
 			}
 
