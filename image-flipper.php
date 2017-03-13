@@ -63,7 +63,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 					if ( $post_type == 'product' ) {
 
-						$attachment_ids = $product->get_gallery_attachment_ids();
+						$attachment_ids = $this->get_gallery_image_ids( $product );
 
 						if ( $attachment_ids ) {
 							$classes[] = 'pif-has-gallery';
@@ -84,11 +84,29 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			function woocommerce_template_loop_second_product_thumbnail() {
 				global $product, $woocommerce;
 
-				$attachment_ids = $product->get_gallery_attachment_ids();
+				$attachment_ids = $this->get_gallery_image_ids( $product );
 
 				if ( $attachment_ids ) {
 					$secondary_image_id = $attachment_ids['0'];
 					echo wp_get_attachment_image( $secondary_image_id, 'shop_catalog', '', $attr = array( 'class' => 'secondary-image attachment-shop-catalog' ) );
+				}
+			}
+
+
+			/*-----------------------------------------------------------------------------------*/
+			/* WooCommerce Compatibility Functions */
+			/*-----------------------------------------------------------------------------------*/
+
+			// Get product gallery image IDs
+			function get_gallery_image_ids( $product ) {
+				if ( ! is_a( $product, 'WC_Product' ) ) {
+					return;
+				}
+
+				if ( is_callable( 'WC_Product::get_gallery_image_ids' ) ) {
+					return $product->get_gallery_image_ids();
+				} else {
+					return $product->get_gallery_attachment_ids();
 				}
 			}
 
