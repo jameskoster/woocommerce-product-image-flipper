@@ -2,8 +2,8 @@
 Contributors: jameskoster
 Tags: woocommerce, ecommerce, product, images, photos, product photos, front and back
 Requires at least: 3.8
-Tested up to: 4.0
-Stable tag: 0.2.0
+Tested up to: 4.7.3
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,10 @@ First of all check that the product you're checking has a gallery attached to it
 1. A flipped image.
 
 == Changelog ==
+
+= 0.3.0 =
+* Fix - WooCommerce 2.7 compatibility.
+* Tweak - Simpler image transition.
 
 = 0.2.0 =
 * Fix - WooCommerce 2.2 compatibility
