@@ -89,7 +89,10 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				if ( $attachment_ids ) {
 					$attachment_ids     = array_values( $attachment_ids );
 					$secondary_image_id = $attachment_ids['0'];
-					echo wp_get_attachment_image( $secondary_image_id, 'shop_catalog', '', $attr = array( 'class' => 'secondary-image attachment-shop-catalog wp-post-image' ) );
+
+					$secondary_image_alt = get_post_meta( $secondary_image_id, '_wp_attachment_image_alt', true );
+					$secondary_image_title = get_the_title($secondary_image_id);
+					echo wp_get_attachment_image( $secondary_image_id, 'shop_catalog', '', $attr = array( 'class' => 'secondary-image attachment-shop-catalog wp-post-image', 'alt' => $secondary_image_alt, 'title' => $secondary_image_title ) );
 				}
 			}
 
