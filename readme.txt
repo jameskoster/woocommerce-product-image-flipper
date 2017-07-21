@@ -1,9 +1,9 @@
 === WooCommerce Product Image Flipper ===
-Contributors: jameskoster
+Contributors: jameskoster, gabriel-kaam
 Tags: woocommerce, ecommerce, product, images, photos, product photos, front and back
 Requires at least: 3.8
 Tested up to: 4.7.5
-Stable tag: 0.3.1
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,8 +16,6 @@ A very simple plugin that adds a secondary product thumbnail on product archives
 This plugin is ideal if you'd like to display more than one image on product archives, and perfect if you want to display front and back images of clothing for example.
 
 Please feel free to contribute on <a href="https://github.com/jameskoster/woocommerce-product-image-flipper">github</a>.
-
-Note: This plugin uses CSS 3d transforms to show/hide the images and will therefore only work in modern browsers.
 
 == Installation ==
 
@@ -37,7 +35,7 @@ This is due to the secondary image being positioned absolutely. This is the clea
 
 = It doesn't work. Nothing happens when I hover over images? =
 
-First of all check that the product you're checking has a gallery attached to it. Secondly you should be aware that this plugin uses CSS 3d transforms and will therefore only work in modern browsers.
+First of all check that the product you're checking has a gallery attached to it.
 
 
 == Screenshots ==
@@ -45,6 +43,9 @@ First of all check that the product you're checking has a gallery attached to it
 1. A flipped image.
 
 == Changelog ==
+
+= 0.4.0 - 21.07.2017 =
+* Enhancement - This plugin does not use CSS 3d anymore.
 
 = 0.3.1 - xx.xx.2017 =
 * Tweak - Secondary images now include alt / title tags
