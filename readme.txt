@@ -46,8 +46,6 @@ First of all check that the product you're checking has a gallery attached to it
 
 = 0.4.0 - 21.07.2017 =
 * Enhancement - This plugin does not use CSS 3d anymore.
-
-= 0.3.1 - xx.xx.2017 =
 * Tweak - Secondary images now include alt / title tags
 
 = 0.3.0 =
