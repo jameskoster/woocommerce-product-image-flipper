@@ -20,9 +20,9 @@
 
 /* backward compatibility - .woocommerce-LoopProduct-link will probably be removed in future releases */
 body.woocommerce:not(.single-product) ul.products li.pif-has-gallery a.woocommerce-LoopProduct-link [class*="wp-post-image"] {
-  -webkit-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  -webkit-transition: opacity .5s ease;
+  -o-transition: opacity .5s ease;
+  transition: opacity .5s ease;
 }
 body.woocommerce:not(.single-product) ul.products li.pif-has-gallery a.woocommerce-LoopProduct-link:hover .wp-post-image {
   opacity: 0;
@@ -32,9 +32,9 @@ body.woocommerce:not(.single-product) ul.products li.pif-has-gallery a.woocommer
 }
 
 body.woocommerce:not(.single-product) ul.products li.pif-has-gallery a.woocommerce-loop-product__link [class*="wp-post-image"] {
-  -webkit-transition: opacity 1s ease;
-  -o-transition: opacity 1s ease;
-  transition: opacity 1s ease;
+  -webkit-transition: opacity .5s ease;
+  -o-transition: opacity .5s ease;
+  transition: opacity .5s ease;
 }
 body.woocommerce:not(.single-product) ul.products li.pif-has-gallery a.woocommerce-loop-product__link:hover .wp-post-image {
   opacity: 0;
