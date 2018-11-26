@@ -2,8 +2,8 @@
 Contributors: jameskoster, gabriel-kaam
 Tags: woocommerce, ecommerce, product, images, photos, product photos, front and back
 Requires at least: 3.8
-Tested up to: 4.9.1
-Stable tag: 0.4.1
+Tested up to: 5.0.0
+Stable tag: 0.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,9 @@ First of all check that the product you're checking has a gallery attached to it
 1. A flipped image.
 
 == Changelog ==
+
+= 0.4.2 - 26.11.2018 =
+* Fix - Moved initilisation function to pif class. Fixes compatibility with other plugins.
 
 = 0.4.1 - 12.12.2017 =
 * Fix - Flipper effect is now applied to shortcodes and product loops on single product pages.
