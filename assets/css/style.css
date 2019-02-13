@@ -3,48 +3,81 @@
  */
 
 .pif-has-gallery {
-	position: relative;
+  position: relative;
 }
 
 .pif-has-gallery .onsale {
-	z-index: 999999;
+  z-index: 999999;
 }
 
 .pif-has-gallery .wp-post-image {
-	opacity: 1;
+  opacity: 1;
 }
 
 .pif-has-gallery .wp-post-image--secondary {
-	position: absolute;
-	top: 0; left: 0;
-	opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
 /* backward compatibility - .woocommerce-LoopProduct-link will probably be removed in future releases */
-ul.products li.pif-has-gallery a.woocommerce-LoopProduct-link [class*="wp-post-image"] {
-	-webkit-transition: opacity .5s ease;
-	-o-transition: opacity .5s ease;
-	transition: opacity .5s ease;
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-LoopProduct-link
+  [class*="wp-post-image"] {
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
-ul.products li.pif-has-gallery a.woocommerce-LoopProduct-link:hover .wp-post-image {
-	opacity: 0;
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-LoopProduct-link:hover
+  .wp-post-image {
+  opacity: 0;
 }
 
-ul.products li.pif-has-gallery a.woocommerce-LoopProduct-link:hover .wp-post-image--secondary {
-	opacity: 1;
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-LoopProduct-link:hover
+  .attachment-woocommerce_thumbnail {
+  opacity: 0;
 }
 
-ul.products li.pif-has-gallery a.woocommerce-loop-product__link [class*="wp-post-image"] {
-	-webkit-transition: opacity .5s ease;
-	-o-transition: opacity .5s ease;
-	transition: opacity .5s ease;
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-LoopProduct-link:hover
+  .wp-post-image--secondary {
+  opacity: 1;
 }
 
-ul.products li.pif-has-gallery a.woocommerce-loop-product__link:hover .wp-post-image {
-	opacity: 0;
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-loop-product__link
+  [class*="wp-post-image"] {
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
-ul.products li.pif-has-gallery a.woocommerce-loop-product__link:hover .wp-post-image--secondary {
-	opacity: 1;
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-loop-product__link:hover
+  .wp-post-image {
+  opacity: 0;
+}
+
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-loop-product__link:hover
+  .attachment-woocommerce_thumbnail {
+  opacity: 0;
+}
+
+ul.products
+  li.pif-has-gallery
+  a.woocommerce-loop-product__link:hover
+  .wp-post-image--secondary {
+  opacity: 1;
 }
