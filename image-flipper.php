@@ -1,5 +1,5 @@
 <?php
-/*
+/**
 Plugin Name: WooCommerce Product Image Flipper
 Plugin URI: http://jameskoster.co.uk/tag/product-image-flipper/
 Version: 0.4.2
@@ -11,21 +11,28 @@ Domain Path: /languages/
 
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 
 /**
  * Check if WooCommerce is active
  */
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 
 	/**
 	 * Image Flipper class
 	 */
-	if ( ! class_exists( 'WC_pif' ) ) {
+	if ( ! class_exists( 'WC_Pif' ) ) {
 
-		class WC_pif {
+		/**
+		 * WC_Pif class.
+		 */
+		class WC_Pif {
 
+			/**
+			 * Constructor.
+			 *
+			 * @access public
+			 */
 			public function __construct() {
 				add_action( 'init', array( $this, 'pif_init' ) );
 				add_action( 'wp_enqueue_scripts', array( $this, 'pif_scripts' ) );
@@ -43,13 +50,18 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			/**
 			 * Class functions
 			 */
-
 			public function pif_scripts() {
 				if ( apply_filters( 'woocommerce_product_image_flipper_styles', true ) ) {
-					wp_enqueue_style( 'pif-styles', plugins_url( '/assets/css/style.css', __FILE__ ) );
+					wp_enqueue_style( 'pif-styles', plugins_url( '/assets/css/style.min.css', __FILE__ ), array(), null, 'all' );
 				}
 			}
 
+			/**
+			 * Product Has Gallery.
+			 *
+			 * @access public
+			 * @param mixed $classes Classes.
+			 */
 			public function product_has_gallery( $classes ) {
 				global $product;
 
@@ -57,7 +69,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 				if ( ! is_admin() ) {
 
-					if ( $post_type == 'product' ) {
+					if ( 'product' === $post_type ) {
 
 						$attachment_ids = $this->get_gallery_image_ids( $product );
 
@@ -70,9 +82,10 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 				return $classes;
 			}
 
-
 			/**
-			 * Frontend functions
+			 * Woocomerce Template Loop Second Product Thumbnail.
+			 *
+			 * @access public
 			 */
 			public function woocommerce_template_loop_second_product_thumbnail() {
 				global $product, $woocommerce;
@@ -83,8 +96,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 					$attachment_ids     = array_values( $attachment_ids );
 					$secondary_image_id = $attachment_ids['0'];
 
-					$secondary_image_alt = get_post_meta( $secondary_image_id, '_wp_attachment_image_alt', true );
-					$secondary_image_title = get_the_title($secondary_image_id);
+					$secondary_image_alt   = get_post_meta( $secondary_image_id, '_wp_attachment_image_alt', true );
+					$secondary_image_title = get_the_title( $secondary_image_id );
 
 					echo wp_get_attachment_image(
 						$secondary_image_id,
@@ -92,16 +105,18 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 						'',
 						array(
 							'class' => 'secondary-image attachment-shop-catalog wp-post-image wp-post-image--secondary',
-							'alt' => $secondary_image_alt,
-							'title' => $secondary_image_title
+							'alt'   => $secondary_image_alt,
+							'title' => $secondary_image_title,
 						)
 					);
 				}
 			}
 
-
 			/**
-			 * WooCommerce Compatibility Functions
+			 * Get Gallery Image IDs.
+			 *
+			 * @access public
+			 * @param mixed $product Product.
 			 */
 			public function get_gallery_image_ids( $product ) {
 				if ( ! is_a( $product, 'WC_Product' ) ) {
@@ -117,7 +132,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 		}
 
-
-		$WC_pif = new WC_pif();
+		$wc_pif = new WC_Pif();
 	}
 }
