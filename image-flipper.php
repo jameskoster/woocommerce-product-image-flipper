@@ -88,7 +88,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 					echo wp_get_attachment_image(
 						$secondary_image_id,
-						'shop_catalog',
+						'woocommerce_thumbnail',
 						'',
 						array(
 							'class' => 'secondary-image attachment-shop-catalog wp-post-image wp-post-image--secondary',
